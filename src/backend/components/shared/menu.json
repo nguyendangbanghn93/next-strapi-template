@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_menus",
+  "info": {
+    "name": "Menu",
+    "icon": "angle-double-right"
+  },
+  "options": {},
+  "attributes": {
+    "index": {
+      "type": "integer"
+    },
+    "collections": {
+      "model": "collections"
+    },
+    "tag": {
+      "model": "tag"
+    },
+    "custom": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.custom"
+    }
+  }
+}

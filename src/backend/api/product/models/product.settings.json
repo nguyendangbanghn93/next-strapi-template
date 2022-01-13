@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "collections",
+  "collectionName": "products",
   "info": {
-    "name": "Collections",
+    "name": "Product",
     "description": ""
   },
   "options": {
@@ -17,6 +17,14 @@
     },
     "description": {
       "type": "text"
+    },
+    "detail": {
+      "type": "richtext"
+    },
+    "collections": {
+      "via": "products",
+      "collection": "collections",
+      "dominant": true
     },
     "thumbnail": {
       "model": "file",
@@ -42,17 +50,12 @@
       "required": false,
       "pluginOptions": {}
     },
-    "sub_collections": {
-      "collection": "collections",
-      "via": "parent"
+    "price": {
+      "type": "biginteger"
     },
-    "parent": {
-      "model": "collections",
-      "via": "sub_collections"
-    },
-    "products": {
-      "via": "collections",
-      "collection": "product"
+    "tags": {
+      "via": "products",
+      "collection": "tag"
     }
   }
 }
