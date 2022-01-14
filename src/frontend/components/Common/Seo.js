@@ -1,10 +1,9 @@
-import { getStrapiMedia } from "../lib/media";
 import Head from "next/head";
-import { GlobalContext } from "../pages/_app";
-import { useContext } from "react";
+import { getStrapiMedia } from "../../lib/media";
+import { useGlobal } from "../../pages/_app";
 
 const Seo = ({ seo }) => {
-  const { defaultSeo, siteName } = useContext(GlobalContext);
+  const { defaultSeo, siteName } = useGlobal();
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

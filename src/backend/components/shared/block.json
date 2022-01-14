@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_blocks",
+  "info": {
+    "name": "block",
+    "icon": "bullseye",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "collections": {
+      "collection": "collections"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "note": {
+      "type": "string"
+    },
+    "max_colum": {
+      "type": "integer"
+    },
+    "max_content": {
+      "type": "integer"
+    },
+    "slider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.slider"
+    }
+  }
+}

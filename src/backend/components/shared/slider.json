@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_sliders",
+  "info": {
+    "name": "slider",
+    "icon": "file-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text_on_image_center",
+        "text_on_image_left",
+        "text_on_image_right",
+        "image_left",
+        "image_right"
+      ]
+    }
+  }
+}

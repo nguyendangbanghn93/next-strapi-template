@@ -1,13 +1,11 @@
+import axios from "axios";
 export function getStrapiURL(path = "") {
   return `${
     process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
-  }${path}`
+  }${path}`;
 }
-
-// Helper to make GET requests to Strapi
-export async function fetchAPI(path) {
-  const requestUrl = getStrapiURL(path)
-  const response = await fetch(requestUrl)
-  const data = await response.json()
-  return data
-}
+export const fetchApi = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337",
+  timeout: 1000,
+  // headers: { "X-Custom-Header": "foobar" },
+});

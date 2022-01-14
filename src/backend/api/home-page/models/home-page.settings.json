@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "home_pages",
   "info": {
-    "name": "Home page"
+    "name": "Home page",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,10 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Menu": {
+    "menu": {
       "type": "component",
       "repeatable": true,
       "component": "shared.menu"
+    },
+    "block": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.block"
+    },
+    "banner": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.slider"
     }
   }
 }

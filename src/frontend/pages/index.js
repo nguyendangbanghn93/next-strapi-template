@@ -1,28 +1,19 @@
-import React from "react"
-import Seo from "../components/seo"
-import { fetchAPI } from "../lib/api"
+import Head from "next/head";
+import Image from "next/image";
+import Header from "../components/Common/Header";
+import Seo from "../components/Common/Seo";
+import Banner from "../components/Common/Banner";
+import styles from "../styles/Home.module.css";
+import { useGlobal } from "./_app";
 
-const Home = ({ homepage }) => {
+export default function Home() {
+  const global = useGlobal();
+  
   return (
     <>
-      <Seo seo={homepage.seo} />
-      <div className="uk-section">
-        Hello, world!
-      </div>
+      <Seo />
+      <Header />
+      <Banner data={global?.homepage?.banner} />
     </>
-  )
+  );
 }
-
-export async function getStaticProps() {
-  // Run API calls in parallel
-  const [homepage] = await Promise.all([
-    fetchAPI("/homepage"),
-  ])
-
-  return {
-    props: { homepage },
-    revalidate: 1,
-  }
-}
-
-export default Home

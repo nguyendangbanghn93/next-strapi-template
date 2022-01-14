@@ -42,17 +42,18 @@
       "required": false,
       "pluginOptions": {}
     },
-    "sub_collections": {
-      "collection": "collections",
-      "via": "parent"
-    },
-    "parent": {
-      "model": "collections",
-      "via": "sub_collections"
-    },
     "products": {
       "via": "collections",
       "collection": "product"
+    },
+    "sub_collections": {
+      "collection": "collections",
+      "via": "main_collections",
+      "dominant": true
+    },
+    "main_collections": {
+      "collection": "collections",
+      "via": "sub_collections"
     }
   }
 }
