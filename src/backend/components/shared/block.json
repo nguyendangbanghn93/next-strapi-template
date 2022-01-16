@@ -13,9 +13,6 @@
     "collections": {
       "collection": "collections"
     },
-    "tags": {
-      "collection": "tag"
-    },
     "note": {
       "type": "string"
     },

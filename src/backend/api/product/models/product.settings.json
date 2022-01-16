@@ -52,10 +52,6 @@
     },
     "price": {
       "type": "biginteger"
-    },
-    "tags": {
-      "via": "products",
-      "collection": "tag"
     }
   }
 }
