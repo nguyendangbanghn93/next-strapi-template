@@ -6,6 +6,6 @@ export function getStrapiURL(path = "") {
 }
 export const fetchApi = axios.create({
   baseURL: process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337",
-  timeout: 1000,
+  timeout: 3000,
   // headers: { "X-Custom-Header": "foobar" },
 });

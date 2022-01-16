@@ -17,15 +17,46 @@
       "type": "string"
     },
     "max_colum": {
-      "type": "integer"
+      "type": "integer",
+      "max": 5,
+      "min": 1,
+      "default": 4
     },
     "max_content": {
-      "type": "integer"
+      "type": "integer",
+      "default": 8,
+      "max": 12,
+      "min": 1
     },
     "slider": {
       "type": "component",
       "repeatable": true,
       "component": "shared.slider"
+    },
+    "tags": {
+      "collection": "tag"
+    },
+    "products": {
+      "collection": "product"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "image_top",
+        "image_left",
+        "image_right",
+        "image_under"
+      ],
+      "default": "image_top",
+      "required": true
+    },
+    "decor": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.decor"
+    },
+    "isShowTitle": {
+      "type": "boolean"
     }
   }
 }

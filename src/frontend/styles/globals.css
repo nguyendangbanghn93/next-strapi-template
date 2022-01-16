@@ -17,11 +17,12 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.nav-menu-item{
+.h-underline {
   position: relative;
+  cursor: pointer;
 }
-.nav-menu-item::after{
-  transition: .3s;
+.h-underline::after {
+  transition: 0.3s;
   content: "";
   background-color: black;
   position: absolute;
@@ -30,7 +31,7 @@ a {
   width: 0%;
   height: 2px;
 }
-.nav-menu-item:hover::after {
+.h-underline:hover::after {
   content: "";
   background-color: black;
   position: absolute;
@@ -38,4 +39,48 @@ a {
   left: 0;
   width: 100%;
   height: 2px;
+}
+.h-underline.active::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+.ar169 {
+  aspect-ratio: 16/9;
+}
+.ar32 {
+  aspect-ratio: 3/2;
+}
+
+.h-500px {
+  height: 500px;
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .md\:h-700px {
+    height: 700px;
+  }
 }

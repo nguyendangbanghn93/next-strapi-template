@@ -59,6 +59,11 @@
       "min": 1,
       "unique": false,
       "required": false
+    },
+    "tags": {
+      "via": "products",
+      "collection": "tag",
+      "dominant": true
     }
   }
 }

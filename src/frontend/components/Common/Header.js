@@ -2,12 +2,40 @@ import React from "react";
 import { useGlobal } from "../../pages/_app";
 import Link from "next/link";
 import { iSlug, isValid } from "../../lib";
+import { Carousel } from "react-responsive-carousel";
 const Header = () => {
   const { homepage } = useGlobal();
+  console.log(homepage);
+
   return (
     <>
-      <div className="text-center Header p-3 bg-gray-200">Sale upto 50%</div>
-      <div className="sticky top-0 left-0 right-0 border-b w-full">
+      {!homepage?.top ? (
+        ""
+      ) : (
+        <Carousel
+          axis="vertical"
+          autoPlay
+          transitionTime={500}
+          infiniteLoop
+          interval={3000}
+          showIndicators={false}
+          showStatus={false}
+          showArrows={false}
+        >
+          {homepage?.top?.map((d, i) => (
+            <Link key={i} href={`/tags/${iSlug(d?.tag?.name, d?.tag?.id)}`} className="">
+              <h1 className="text-center Header p-3 bg-gray-200 cursor-pointer">{d?.name}</h1>
+            </Link>
+          ))}
+          {/* <div className="text-center Header p-3 bg-gray-200">
+            Sale upto 50%
+          </div>
+          <div className="text-center Header p-3 bg-gray-200">
+            Sale upto 10%
+          </div> */}
+        </Carousel>
+      )}
+      <div className="sticky top-0 left-0 right-0 border-b w-full z-20 bg-white">
         <div className="container mx-auto">
           <div className="text-center relative font-mono">
             <div className="absolute top-0 bottom-0 left-0 flex items-center">
@@ -43,7 +71,7 @@ const Header = () => {
               });
               return (
                 <Link href={`/${path}`} onClick={() => console.log(v)} key={i}>
-                  <p className="px-2 md:px-4 py-3 font-mono cursor-pointer relative nav-menu-item">
+                  <p className="px-2 md:px-4 py-3 font-mono cursor-pointer relative h-underline">
                     {v.name}
                   </p>
                 </Link>

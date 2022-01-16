@@ -22,6 +22,7 @@ const Img = ({ src: srcOrg, srcDefault, showDefault = true, ...rest }) => {
         loader={contentfulLoader}
         layout="fill"
         loading="lazy"
+        objectFit="cover"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = "/images/image_default.png";

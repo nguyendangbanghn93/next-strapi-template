@@ -1,9 +1,8 @@
 {
-  "collectionName": "components_shared_sliders",
+  "collectionName": "components_shared_decors",
   "info": {
-    "name": "slider",
-    "icon": "file-alt",
-    "description": ""
+    "name": "decor",
+    "icon": "archway"
   },
   "options": {},
   "attributes": {
@@ -25,18 +24,8 @@
       "required": false,
       "pluginOptions": {}
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "text_on_image_center",
-        "text_on_image_left",
-        "text_on_image_right",
-        "image_left",
-        "image_right"
-      ]
-    },
-    "dot": {
-      "type": "string"
+    "fixed": {
+      "type": "boolean"
     }
   }
 }

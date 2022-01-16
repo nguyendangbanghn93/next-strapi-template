@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_tops",
+  "info": {
+    "name": "Top",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "model": "tag"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

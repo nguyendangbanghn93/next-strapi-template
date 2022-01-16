@@ -1,3 +1,4 @@
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import "../styles/material.css";
 import "../styles/globals.css";
 import "../styles/slick.css";
