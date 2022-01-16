@@ -1,0 +1,93 @@
+version: "3.8"
+networks:
+  strapi-network:
+    driver: bridge
+volumes:
+  strapi-uploads:
+    driver: local
+  mongo-database:
+    driver: local
+services:
+  mongo1:
+    image: mongo:4.2
+    container_name: mongo1
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "${PORT}","--auth"]
+    volumes:
+      - ./data/mongo-1:/data/db
+    networks:
+      - strapi-network
+    environment:
+      # MONGO_INITDB_DATABASE: ecommerce
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: 123456
+      # MONGODB_DATABASE: ecommerce
+      MONGODB_USER: root
+      MONGODB_PASS: 123456
+    ports:
+      - ${PORT}:${PORT}
+    healthcheck:
+      test: test $$(echo "rs.initiate({_id:'rs0',members:[{_id:0,host:\"${IP_ADDRESS}:${PORT}\"},{_id:1,host:\"${IP_ADDRESS}:30002\"},{_id:2,host:\"${IP_ADDRESS}:30003\"}]}).ok || rs.status().ok" | mongo --port ${PORT} --quiet) -eq 1 
+      interval: 10s
+      start_period: 30s
+  mongo2:
+    image: mongo:4.2
+    container_name: mongo2
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "30002"]
+    volumes:
+      - ./data/mongo-2:/data/db
+    networks:
+      - strapi-network
+    ports:
+      - 30002:30002
+
+  mongo3:
+    image: mongo:4.2
+    container_name: mongo3
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "30003"]
+    volumes:
+      - ./data/mongo-3:/data/db
+    ports:
+      - 30003:30003
+    networks:
+      - strapi-network
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8866:8081
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:123456@${IP_ADDRESS}:${PORT}?replicaSet=rs0
+# mongodb://admin:admin@192.168.68.104:30001,192.168.68.104:30002,192.168.68.104:30003/?replicaSet=rs0&authSource=ecommerce
+
+
+
+# version: "3.7"
+
+# networks:
+#   strapi-network:
+#     driver: bridge
+  
+# volumes:
+#   strapi-uploads:
+#     driver: local
+#   mongo-database:
+#     driver: local
+
+# services:
+#   mongodb:
+#     image: mongo:latest
+#     container_name: strapi-mongodb
+#     volumes:
+#       - mongo-database:/data/db
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: strapi
+#       MONGO_INITDB_ROOT_PASSWORD: strapi
+#     restart: unless-stopped
+#     ports:
+#       - 27018:27017
+#     networks:
+#       - strapi-network
