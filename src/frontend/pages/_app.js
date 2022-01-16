@@ -1,4 +1,4 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/material.css";
 import "../styles/globals.css";
 import "../styles/slick.css";
@@ -10,6 +10,7 @@ import Head from "next/head";
 import { createContext, useContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import { fetchApi } from "../lib/api";
+import { getListProducts } from "../services/productService";
 export const GlobalContext = createContext({});
 export const useGlobal = () => useContext(GlobalContext);
 const MyApp = ({ Component, pageProps }) => {
@@ -35,6 +36,29 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   let { data: global } = await fetchApi.get("/global");
   const { data: homepage } = await fetchApi.get("/home-page");
+  const dataProducts = {};
+  let products = [];
+  homepage?.block?.map((d) => {
+    d?.collections?.map((c, i) => {
+      c?.products && (products = [...products, ...c?.products]);
+      return true;
+    });
+    d?.tags?.map((t, i) => {
+      t?.products && (products = [...products, ...t?.products]);
+      return true;
+    });
+    d?.products?.map((p, i) => {
+      dataProducts[p.id] = p;
+      return true;
+    });
+  });
+  // const { data } = await getListProducts({ id: products });
+
+
+  // const collections = [];
+  // const tags = [];
+
+  // const {data} = await
   global.homepage = homepage;
   return { ...appProps, pageProps: { global: global } };
 };

@@ -21,11 +21,6 @@
     "detail": {
       "type": "richtext"
     },
-    "collections": {
-      "via": "products",
-      "collection": "collections",
-      "dominant": true
-    },
     "thumbnail": {
       "model": "file",
       "via": "related",
@@ -64,6 +59,10 @@
       "via": "products",
       "collection": "tag",
       "dominant": true
+    },
+    "collections": {
+      "via": "products",
+      "collection": "collections"
     }
   }
 }

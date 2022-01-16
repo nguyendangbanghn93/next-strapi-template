@@ -42,10 +42,6 @@
       "required": false,
       "pluginOptions": {}
     },
-    "products": {
-      "via": "collections",
-      "collection": "product"
-    },
     "sub_collections": {
       "collection": "collections",
       "via": "main_collections",
@@ -54,6 +50,11 @@
     "main_collections": {
       "collection": "collections",
       "via": "sub_collections"
+    },
+    "products": {
+      "collection": "product",
+      "via": "collections",
+      "dominant": true
     }
   }
 }

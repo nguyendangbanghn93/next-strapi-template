@@ -6,8 +6,8 @@ import { useGlobal } from "./_app";
 
 export default function Home() {
   const global = useGlobal();
-  console.log(global?.homepage.block);
-
+  // console.log("____________________",global.homepage);
+  
   return (
     <>
       <Seo />
