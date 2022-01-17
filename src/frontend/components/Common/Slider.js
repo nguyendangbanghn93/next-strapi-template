@@ -53,7 +53,7 @@ const Slider = ({
             type === "image_right" ? "flex-row-reverse" : ""
           }`}
         >
-          <div className="w-1/2 relative">
+          <div className="w-1/2">
             <Img src={url} objectFit="cover" className="h-full w-full" />
           </div>
           <div className="w-1/2 flex flex-col justify-center px-5 text-left">

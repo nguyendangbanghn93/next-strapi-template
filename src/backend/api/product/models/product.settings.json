@@ -55,14 +55,13 @@
       "unique": false,
       "required": false
     },
-    "tags": {
-      "via": "products",
-      "collection": "tag",
-      "dominant": true
-    },
     "collections": {
       "via": "products",
       "collection": "collections"
+    },
+    "tags": {
+      "via": "products",
+      "collection": "tag"
     }
   }
 }

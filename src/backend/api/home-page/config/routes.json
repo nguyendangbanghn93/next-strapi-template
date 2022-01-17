@@ -9,6 +9,22 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/home-page/header",
+      "handler": "home-page.findHeader",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/home-page/body",
+      "handler": "home-page.findBody",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/home-page",
       "handler": "home-page.update",

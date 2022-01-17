@@ -4,12 +4,10 @@ import Link from "next/link";
 import { iSlug, isValid } from "../../lib";
 import { Carousel } from "react-responsive-carousel";
 const Header = () => {
-  const { homepage } = useGlobal();
-  console.log(homepage);
-
+  const { header } = useGlobal();
   return (
     <>
-      {!homepage?.top ? (
+      {!header?.top ? (
         ""
       ) : (
         <Carousel
@@ -21,8 +19,9 @@ const Header = () => {
           showIndicators={false}
           showStatus={false}
           showArrows={false}
+          showThumbs={false}
         >
-          {homepage?.top?.map((d, i) => (
+          {header?.top?.map((d, i) => (
             <Link key={i} href={`/tags/${iSlug(d?.tag?.name, d?.tag?.id)}`} className="">
               <h1 className="text-center Header p-3 bg-gray-200 cursor-pointer">{d?.name}</h1>
             </Link>
@@ -58,7 +57,7 @@ const Header = () => {
             </div>
           </div>
           <div className="justify-center hidden md:flex">
-            {homepage?.menu?.map((v, i) => {
+            {header?.menu?.map((v, i) => {
               let path = "";
               isValid(v.tag, () => {
                 path = "tag/" + iSlug(v.name, v.tag.id);

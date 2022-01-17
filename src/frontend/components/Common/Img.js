@@ -17,19 +17,21 @@ const Img = ({ src: srcOrg, srcDefault, showDefault = true, ...rest }) => {
   };
   if (showDefault || src)
     return (
-      <ImageNext
-        src={src || srcDefault}
-        loader={contentfulLoader}
-        layout="fill"
-        loading="lazy"
-        objectFit="cover"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = "/images/image_default.png";
-          e.target.srcset = "/images/image_default.png 1x";
-        }}
-        {...rest}
-      />
+      <div className="relative w-full h-full">
+        <ImageNext
+          src={src || srcDefault}
+          loader={contentfulLoader}
+          layout="fill"
+          loading="lazy"
+          objectFit="cover"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/images/image_default.png";
+            e.target.srcset = "/images/image_default.png 1x";
+          }}
+          {...rest}
+        />
+      </div>
     );
   return "";
 };

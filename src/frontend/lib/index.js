@@ -35,3 +35,16 @@ export const isValid = (value, fn) => {
     return true;
   } catch (error) {}
 };
+export const fixDinary = (url, o) => {
+  if (url?.includes("res.cloudinary.com/nguyendangbang/image/upload/") && o) {
+    let str = "c_fill";
+    if (o.mode) str = o.mode;
+    if (o.h) str = str + ",h_" + o.h;
+    if (o.w) str = str + ",w_" + o.w;
+    return url?.replace(
+      "res.cloudinary.com/nguyendangbang/image/upload/",
+      "res.cloudinary.com/nguyendangbang/image/upload/" + str + "/"
+    );
+  }
+  return url;
+};

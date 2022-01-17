@@ -35,32 +35,9 @@ const MyApp = ({ Component, pageProps }) => {
 MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   let { data: global } = await fetchApi.get("/global");
-  const { data: homepage } = await fetchApi.get("/home-page");
-  const dataProducts = {};
-  let products = [];
-  homepage?.block?.map((d) => {
-    d?.collections?.map((c, i) => {
-      c?.products && (products = [...products, ...c?.products]);
-      return true;
-    });
-    d?.tags?.map((t, i) => {
-      t?.products && (products = [...products, ...t?.products]);
-      return true;
-    });
-    d?.products?.map((p, i) => {
-      dataProducts[p.id] = p;
-      return true;
-    });
-  });
-  // const { data } = await getListProducts({ id: products });
-
-
-  // const collections = [];
-  // const tags = [];
-
-  // const {data} = await
-  global.homepage = homepage;
-  return { ...appProps, pageProps: { global: global } };
+  const { data: header } = await fetchApi.get("/home-page/header");
+  global.header = header;
+  return { ...appProps, pageProps: { global } };
 };
 
 export default MyApp;
