@@ -1,29 +1,54 @@
-import ImageNext from "next/image";
+import Image from "next/image";
 import { getStrapiMedia } from "../../lib/media";
+import { fixDinary } from "../../lib/index";
 import { useGlobal } from "../../pages/_app";
+import { useEffect, useRef, useState } from "react";
 
-const Img = ({ src: srcOrg, srcDefault, showDefault = true, ...rest }) => {
+const Img = function ({
+  src: srcOrg,
+  srcDefault,
+  className,
+  addClass,
+  showDefault = true,
+  mode = "c_mfit",
+  ...rest
+}) {
+  // const [size, setSize] = useState({});
   const global = useGlobal();
+  const wrap = useRef(null);
+
+  // useEffect(() => {
+  //   if (wrap.current.offsetWidth) {
+  //     setSize({
+  //       with: wrap.current.offsetWidth,
+  //       height: wrap.current.offsetHeight,
+  //     });
+  //   }
+  // }, []);
   const src = getStrapiMedia(srcOrg);
   srcDefault = srcDefault || getStrapiMedia(global.favicon);
   const contentfulLoader = ({ src, quality, width }) => {
-    const params = [`w=${width}`];
-
-    if (quality) {
-      params.push(`q=${quality}`);
-    }
-
-    return `${src}?${params.join("&")}`;
+    return fixDinary(src, {
+      w:
+        wrap?.current?.offsetWidth < width ? wrap?.current?.offsetWidth : width,
+      h: wrap?.current?.offsetHeight,
+      mode: mode,
+    });
   };
-  if (showDefault || src)
+  if (showDefault || src?.length)
     return (
-      <div className="relative w-full h-full">
-        <ImageNext
+      <div
+        className={className || `relative w-full h-full ${addClass}`}
+        ref={wrap}
+      >
+        <Image
           src={src || srcDefault}
           loader={contentfulLoader}
           layout="fill"
           loading="lazy"
           objectFit="cover"
+          blurDataURL={src || srcDefault}
+          placeholder="blur"
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/images/image_default.png";

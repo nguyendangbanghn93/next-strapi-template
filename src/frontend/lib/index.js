@@ -36,6 +36,7 @@ export const isValid = (value, fn) => {
   } catch (error) {}
 };
 export const fixDinary = (url, o) => {
+  if (typeof url === "object") url = url?.url;
   if (url?.includes("res.cloudinary.com/nguyendangbang/image/upload/") && o) {
     let str = "c_fill";
     if (o.mode) str = o.mode;
@@ -47,4 +48,19 @@ export const fixDinary = (url, o) => {
     );
   }
   return url;
+};
+export const iMoney = (n,a) => {
+  if (n) {
+    n = Number(n) + "";
+    var x = n.split("."),
+      y = x[0],
+      z = x.length > 1 ? "." + x[1] : "",
+      r = /(\d+)(\d{3})/;
+    while (r.test(y)) {
+      y = y.replace(r, "$1" + "," + "$2");
+    }
+    return `${y + z}${a||""}`;
+  } else {
+    return `0${a||""}`;
+  }
 };

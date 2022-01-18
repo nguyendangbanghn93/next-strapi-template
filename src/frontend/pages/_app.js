@@ -1,8 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/material.css";
 import "../styles/globals.css";
-import "../styles/slick.css";
-import "../styles/slick-theme.css";
 // const global = useGlobal();
 
 import App from "next/app";

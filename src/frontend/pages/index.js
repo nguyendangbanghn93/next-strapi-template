@@ -7,10 +7,7 @@ import { useGlobal } from "./_app";
 
 export default function Home({ body, products }) {
   const global = useGlobal();
-  console.log("_______________________________________________", body);
-
-  // console.log("____________________",global.homepage.data[0],global.homepage.data[0].block[0].collections[0].products);
-
+  // console.log("_______________________________________________", body);
   return (
     <>
       <Seo />

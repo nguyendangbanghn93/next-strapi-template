@@ -52,8 +52,8 @@
       "via": "sub_collections"
     },
     "products": {
-      "collection": "product",
       "via": "collections",
+      "collection": "product",
       "dominant": true
     }
   }

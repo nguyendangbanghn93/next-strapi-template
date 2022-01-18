@@ -21,7 +21,6 @@ module.exports = {
       .select(
         "-block -banner -published_at -createdAt -updatedAt -__v -created_by -updated_by -blocks -_id -id"
       );
-      console.log(data);
       
     return data;
   },
