@@ -87,8 +87,15 @@ input.h-underline:checked + label.h-underline::after {
     height: 700px;
   }
 }
+.t-shadow-white-1{
+  text-shadow: 1px 1px 2px white;
+}
 .toTop {
   animation-name: toTop;
+  animation-duration: .5s;
+}
+.show-ta5 {
+  animation-name: show;
   animation-duration: .5s;
 }
 @keyframes toTop {
@@ -98,6 +105,14 @@ input.h-underline:checked + label.h-underline::after {
   }
   to {
     transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes show {
+  from {
+  opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }

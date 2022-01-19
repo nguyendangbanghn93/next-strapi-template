@@ -2,6 +2,7 @@ import Header from "../components/Common/Header";
 import Seo from "../components/Common/Seo";
 import Slider from "../components/Common/Slider";
 import Collections from "../components/Homepage/Collections";
+import Decor from "../components/Homepage/Decor";
 import { fetchApi } from "../lib/api";
 import { useGlobal } from "./_app";
 
@@ -25,6 +26,9 @@ export default function Home({ body, products }) {
         : body?.block?.map((d, i) => {
             if (d?.collections?.length)
               return <Collections data={d} key={i} products={products} />;
+            if (d?.decor) {
+              return <Decor data={d} key={i} />;
+            }
           })}
     </>
   );

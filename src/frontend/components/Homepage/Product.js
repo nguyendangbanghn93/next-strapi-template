@@ -1,22 +1,33 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { iMoney, iSlug } from "../../lib";
 import Img from "../Common/Img";
 const Tag = ({ tag }) => {
   return (
     <div
       onClick={() => console.log(tag)}
-      className="  font-semibold rounded-sm"
+      className=" t-shadow-white-1 font-semibold rounded-sm"
     >
       {tag.name}
     </div>
   );
 };
 const Product = ({ data }) => {
+  const [isShowImages, setIsShowImages] = useState(false);
   return (
     <Link href={`/products/${iSlug(data?.name, data?.id)}`}>
-      <div className="relative drop-shadow" onClick={() => console.log(data)}>
-        <Img src={data?.thumbnail?.url} addClass="ar34"/>
+      <div
+        className="relative drop-shadow"
+        onClick={() => console.log(data)}
+        onMouseEnter={() => setIsShowImages(true)}
+        onMouseLeave={() => setIsShowImages(false)}
+      >
+        <Img src={data?.thumbnail?.url} addClass="ar34" />
+        {isShowImages && (
+          <div className="absolute top-0 left-0 w-full show-ta5">
+            <Img src={data?.images?.[0]?.url} addClass="ar34" />
+          </div>
+        )}
         <div className="absolute top-0 left-0 p-3">
           {data?.tags?.map((d, i) => d?.isShowBadge && <Tag key={i} tag={d} />)}
         </div>
