@@ -3,9 +3,10 @@ import Product from "./Product";
 
 const Collections = ({ data, products }) => {
   const [collection, setCollection] = useState("");
-  const { isShowTitle, collections, name, max_colum, max_content } = data;
+  let { isShowTitle, collections,tags, name, max_colum, max_content } = data;
+  const listProducts = collections?.length?collections:tags
   useEffect(() => {
-    if (collections?.[0]?.id) setCollection(collections?.[0]?.id);
+    if (listProducts?.[0]?.id) setCollection(listProducts?.[0]?.id);
   }, []);
   const classCol = {
     5: "w-full sm:w-4/12 md:w-1/4 xl:w-1/5",
@@ -20,7 +21,7 @@ const Collections = ({ data, products }) => {
         <h1 className="font-bold text-2xl px-3 text-center">{name}</h1>
       )}
       <div className="flex justify-center mt-5 flex-wrap">
-        {collections?.map((d, i) => {
+        {listProducts?.map((d, i) => {
           return (
             <div key={i}>
               <input
@@ -44,7 +45,7 @@ const Collections = ({ data, products }) => {
         })}
       </div>
       <div className="flex flex-wrap mt-5">
-        {collections?.map((d, i) => {
+        {listProducts?.map((d, i) => {
           return d?.products?.map((item, index) => {
             const product = products[item];
             return index >= max_content ? (

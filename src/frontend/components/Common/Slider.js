@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { getStrapiMedia } from "../../lib/media";
 import { Carousel } from "react-responsive-carousel";
 import Img from "./Img";
@@ -9,7 +9,9 @@ const Slider = ({
   showContent = true,
   ...rest
 }) => {
-  const renderImage = ({ image, type, title, description }) => {
+  console.log(data);
+  
+  const renderImage = useCallback(({ image, type, title, description }) => {
     const url = getStrapiMedia(image);
     if (!type) {
       return <Img src={url} objectFit="cover" className="h-full w-full" />;
@@ -47,6 +49,8 @@ const Slider = ({
         </>
       );
     } else {
+      console.log(type,title);
+      
       return (
         <div
           className={`h-full w-full flex ${
@@ -67,7 +71,7 @@ const Slider = ({
         </div>
       );
     }
-  };
+  },[]);
 
   return (
     <>

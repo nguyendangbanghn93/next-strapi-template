@@ -7,8 +7,8 @@ import { fetchApi } from "../lib/api";
 import { useGlobal } from "./_app";
 
 export default function Home({ body, products }) {
-  const global = useGlobal();
-  // console.log("_______________________________________________", body);
+ console.log(body?.block);
+ 
   return (
     <>
       <Seo />
@@ -24,11 +24,16 @@ export default function Home({ body, products }) {
       {!body?.block?.length
         ? ""
         : body?.block?.map((d, i) => {
-            if (d?.collections?.length)
+            if (d?.collections?.length||d?.tags?.length)
               return <Collections data={d} key={i} products={products} />;
             if (d?.decor) {
               return <Decor data={d} key={i} />;
             }
+            if(d?.slider?.length){
+             return <Slider    data={d?.slider}
+              wClass="relative h-500px md:h-700px flex flex-wrap"  key={i} />
+              }
+            
           })}
     </>
   );
