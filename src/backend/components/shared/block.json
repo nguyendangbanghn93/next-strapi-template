@@ -57,6 +57,9 @@
     },
     "isShowTitle": {
       "type": "boolean"
+    },
+    "featured_products": {
+      "collection": "product"
     }
   }
 }

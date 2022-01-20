@@ -14,6 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,8 +57,17 @@ input.h-underline:checked + label.h-underline::after {
 .ar169 {
   aspect-ratio: 16/9;
 }
+.ar32 {
+  aspect-ratio: 3/2;
+}
+.ar53 {
+  aspect-ratio: 5/3;
+}
 .ar34 {
   aspect-ratio: 3/4;
+}
+.ar11 {
+  aspect-ratio: 1/1;
 }
 
 .h-500px {
@@ -81,14 +92,40 @@ input.h-underline:checked + label.h-underline::after {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 @media (min-width: 768px) {
   .md\:h-700px {
     height: 700px;
   }
+  .md\:ar34 {
+    aspect-ratio: 3/4;
+  }
+}
+@media (min-width: 640px) {
+  .sm\:h-700px {
+    height: 700px;
+  }
+  .sm\:ar34 {
+    aspect-ratio: 3/4;
+  }
 }
 .t-shadow-white-1{
   text-shadow: 1px 1px 2px white;
+}
+.h\:t-shadow-white-1:hover{
+  color: #fff;
 }
 .toTop {
   animation-name: toTop;
@@ -115,4 +152,7 @@ input.h-underline:checked + label.h-underline::after {
   to {
     opacity: 1;
   }
+}
+.slick-current .custom-select{
+  border: 2px solid rgb(74, 111, 231);
 }

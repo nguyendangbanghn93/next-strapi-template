@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { iMoney, iSlug } from "../../lib";
-import Img from "../Common/Img";
+import Img from "./Img";
 const Tag = ({ tag }) => {
   return (
     <div
@@ -22,7 +22,7 @@ const Product = ({ data }) => {
         onMouseEnter={() => setIsShowImages(true)}
         onMouseLeave={() => setIsShowImages(false)}
       >
-        <Img src={data?.thumbnail?.url} addClass="ar34" />
+        <Img src={data?.thumbnail?.url} addClass="ar11 sm:ar34" />
         {isShowImages && (
           <div className="absolute top-0 left-0 w-full show-ta5">
             <Img src={data?.images?.[0]?.url} addClass="ar34" />

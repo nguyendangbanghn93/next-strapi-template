@@ -7,10 +7,12 @@ const Slider = ({
   data,
   wClass = "relative h-500px md:h-700px flex flex-wrap",
   showContent = true,
+  lineClampTitle = "line-clamp-1",
+  lineClampText = "line-clamp-2",
   ...rest
 }) => {
   console.log(data);
-  
+
   const renderImage = useCallback(({ image, type, title, description }) => {
     const url = getStrapiMedia(image);
     if (!type) {
@@ -38,10 +40,12 @@ const Slider = ({
             <div
               className={`absolute bottom-0 bg-opacity-40 bg-black hidden md:block mb-20 text-white py-5 ${classOption}`}
             >
-              <h1 className="font uppercase md:text-3xl xl:text-4xl line-clamp-1">
+              <h1
+                className={`uppercase font-bold md:text-3xl xl:text-4xl ${lineClampTitle}`}
+              >
                 {title}
               </h1>
-              <p className="mt-3 md:text-xl xl:text-2xl line-clamp-2">
+              <p className={`mt-3 md:text-xl xl:text-2xl ${lineClampText}`}>
                 {description}
               </p>
             </div>
@@ -49,29 +53,33 @@ const Slider = ({
         </>
       );
     } else {
-      console.log(type,title);
-      
       return (
         <div
-          className={`h-full w-full flex ${
+          className={`h-full flex flex-wrap container m-auto px-0 sm:px-1 md:px-5 ${
             type === "image_right" ? "flex-row-reverse" : ""
           }`}
         >
-          <div className="w-1/2">
-            <Img src={url} objectFit="cover" className="h-full w-full" />
+          <div className="w-full sm:w-1/2">
+            <Img
+              src={url}
+              objectFit="cover"
+              className="h-full w-full relative"
+            />
           </div>
-          <div className="w-1/2 flex flex-col justify-center px-5 text-left">
-            <h1 className="font uppercase md:text-3xl xl:text-4xl line-clamp-1">
+          <div className=" w-full sm:w-1/2 flex flex-col justify-center px-5 text-left">
+            <h1
+              className={`uppercase font-bold md:text-3xl xl:text-4xl ${lineClampTitle}`}
+            >
               {title}
             </h1>
-            <p className="mt-3 md:text-xl xl:text-2xl line-clamp-2">
+            <p className={`mt-3 md:text-xl xl:text-2xl ${lineClampText}`}>
               {description}
             </p>
           </div>
         </div>
       );
     }
-  },[]);
+  }, []);
 
   return (
     <>
