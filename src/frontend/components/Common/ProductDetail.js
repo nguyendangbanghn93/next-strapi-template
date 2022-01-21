@@ -34,12 +34,13 @@ const ProductDetail = ({ data, configs }) => {
   const product = data[0];
   return (
     <div className="container m-auto">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center">
         <div className="w-full md:w-1/2 px-1 md:px-5">
           <Slider asNavFor={slider2.current} ref={slider1} speed={0}>
             {[product?.thumbnail, ...product?.images]?.map((image, index) => {
               return (
                 <Img
+                key={index}
                   src={fixDinary(image)}
                   className="relative w-full ar53 show-ta5"
                 />
@@ -61,7 +62,7 @@ const ProductDetail = ({ data, configs }) => {
           >
             {[product?.thumbnail, ...product?.images]?.map((image, index) => {
               return (
-                <div className="p-1">
+                <div className="p-1" key={index}>
                   <Img
                     src={fixDinary(image)}
                     className="relative w-full ar32 show-ta5 custom-select"
@@ -71,7 +72,7 @@ const ProductDetail = ({ data, configs }) => {
             })}
           </Slider>
         </div>
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 p-5 md:p-0">
           <h1 className="font-serif uppercase font-bold text-2xl cursor-pointer mb-5">
             {product?.name}
           </h1>
@@ -90,7 +91,15 @@ const ProductDetail = ({ data, configs }) => {
               </p>
             </div>
           )}
-          <div>Số lượng:</div>
+          <div className="mt-5">Số lượng:</div>
+          <div className="flex justify-between w-fit mt-2">
+            <span className="border py-2 px-4 cursor-pointer relative hover:text-white after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-black after:-z-10 after:w-0 after:duration-300 hover:after:w-full ">-</span>
+            <input type="number" defaultValue={1} min={1} max={99} className="border w-fit appearance-none text-center"/>
+            <span className="border py-2 px-4 cursor-pointer relative hover:text-white after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-black after:-z-10 after:w-0 after:duration-300 hover:after:w-full ">+</span>
+          </div>
+          <div className="mt-5 line-clamp-5">{product?.description}</div>
+          <button className="mt-5 py-2 px-5 border relative hover:text-white after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-black after:-z-10 after:w-0 after:duration-300 hover:after:w-full">Thêm vào giỏ hàng</button>
+          <button className="ml-3 mt-5 py-2 px-5 border relative hover:text-white after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-black after:-z-10 after:w-0 after:duration-300 hover:after:w-full">Đặt hàng nhanh</button>
         </div>
       </div>
     </div>

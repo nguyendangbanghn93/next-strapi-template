@@ -6,5 +6,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // require("@tailwindcss/line-clamp")
+  ],
+  darkMode: "class",
+  container: {
+    center: true,
+  },
 };
