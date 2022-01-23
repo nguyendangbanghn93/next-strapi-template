@@ -3,6 +3,7 @@ import { getStrapiMedia } from "../../lib/media";
 import { fixDinary } from "../../lib/index";
 import { useGlobal } from "../../pages/_app";
 import { useEffect, useRef, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 const Img = function ({
   src: srcOrg,
@@ -11,9 +12,10 @@ const Img = function ({
   addClass,
   showDefault = true,
   mode = "c_mfit",
+  skeleton=true,
   ...rest
 }) {
-  // const [size, setSize] = useState({});
+  const [loading, setLoading] = useState(true);
   const global = useGlobal();
   const wrap = useRef(null);
 
@@ -41,14 +43,16 @@ const Img = function ({
         className={className || `relative w-full h-full ${addClass}`}
         ref={wrap}
       >
+        {!loading ? "" : skeleton&&<Skeleton className="w-full h-full" />}
         <Image
           src={src || srcDefault}
           loader={contentfulLoader}
           layout="fill"
           loading="lazy"
           objectFit="cover"
-          blurDataURL={src || srcDefault}
-          placeholder="blur"
+          // blurDataURL={src || srcDefault}
+          // placeholder="blur"
+          onLoad={() => setLoading(false)}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/images/image_default.png";

@@ -2,13 +2,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Product from "../Common/Product";
 
-const ListProducts = ({ data, products }) => {
+const ListProducts = ({ data, products ,wClass}) => {
   const [collection, setCollection] = useState("");
   let {
-    isShowTitle,
     collections,
     tags,
-    name,
+    
     max_colum,
     max_content,
     products: listProducts,
@@ -28,10 +27,7 @@ const ListProducts = ({ data, products }) => {
     1: "w-1/2",
   };
   return (
-    <div className="my-12 container mx-auto">
-      {isShowTitle && (
-        <h1 className="font-bold text-2xl px-3 text-center">{name}</h1>
-      )}
+    <div className={wClass}>
       <div className="flex justify-center mt-5 flex-wrap">
         {listCategories?.map((d, i) => {
           return (
@@ -76,9 +72,8 @@ const ListProducts = ({ data, products }) => {
               ""
             ) : (
               <div
-                className={`${classCol[max_colum]} py-6 px-1 md:px-5 toTop ${
-                  d.id === collection ? "" : "hidden"
-                }`}
+                className={`${classCol[max_colum]} py-6 px-1 md:px-5 toTop ${d.id === collection ? "" : "hidden"
+                  }`}
                 key={index}
               >
                 <Product data={product} />
@@ -87,7 +82,7 @@ const ListProducts = ({ data, products }) => {
           });
         })}
       </div>
-      {!typeGroup?"":<div className="flex justify-center">
+      {!typeGroup ? "" : <div className="flex justify-center">
         <Link href={`/${typeGroup}/${collection}`}>
           <button className="bg-black text-white mt-5 py-2 px-5 border relative after:absolute after:bg-white after:top-0 after:bottom-0 after:left-auto after:right-0 after:w-0 duration-500 after:duration-500 hover:after:w-full hover:text-black hover:after:right-auto hover:after:left-0">
             <span className="z-10 relative">Xem thêm</span>

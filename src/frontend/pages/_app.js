@@ -1,10 +1,10 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import "../styles/material.css";
-import "../styles/globals.css";
-// const global = useGlobal();
+import 'react-loading-skeleton/dist/skeleton.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../styles/globals.css";
+
 import App from "next/app";
 import Head from "next/head";
 import { createContext, useContext } from "react";
