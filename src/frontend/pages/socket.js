@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { toast } from "react-toastify";
 import io from "socket.io-client";
 const socket = () => {
   useEffect(() => {
+    toast("toast success!!")
     // const socket = io("http://localhost:8026");
     // socket.on("connect", (res) => {
     //   console.log("socket_____", res);

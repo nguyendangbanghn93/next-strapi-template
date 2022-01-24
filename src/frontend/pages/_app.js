@@ -1,5 +1,5 @@
+import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import "../styles/material.css";
 import "../styles/globals.css";
 // const global = useGlobal();
@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import App from "next/app";
 import Head from "next/head";
+import { ToastContainer, toast } from "react-toastify";
 import { createContext, useContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import { fetchApi } from "../lib/api";
@@ -22,6 +23,17 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
