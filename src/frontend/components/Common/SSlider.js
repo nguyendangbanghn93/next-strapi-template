@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { getStrapiMedia } from "../../lib/media";
-import { Carousel } from "react-responsive-carousel";
+import CustomSlider from "./CustomSlider";
 import Img from "./Img";
 
-const Slider = ({
+const SSlider = ({
   data,
   wClass = "relative h-500px md:h-700px flex flex-wrap",
   showContent = true,
@@ -55,9 +55,8 @@ const Slider = ({
     } else {
       return (
         <div
-          className={`h-full flex flex-wrap container m-auto px-0 sm:px-1 md:px-5 ${
-            type === "image_right" ? "flex-row-reverse" : ""
-          }`}
+          className={`h-full flex flex-wrap container m-auto px-0 sm:px-1 md:px-5 ${type === "image_right" ? "flex-row-reverse" : ""
+            }`}
         >
           <div className="w-full sm:w-1/2">
             <Img
@@ -82,26 +81,23 @@ const Slider = ({
   }, []);
 
   return (
-    <>
-      <Carousel
-        infiniteLoop
-        emulateTouch
-        autoPlay
-        interval={5000}
-        transitionTime={1000}
-        showThumbs={false}
-        {...rest}
-      >
-        {data?.map((d, i) => {
-          return (
-            <div className={wClass} key={i} onClick={() => console.log(d)}>
-              {renderImage(d)}
-            </div>
-          );
-        })}
-      </Carousel>
-    </>
+    <CustomSlider
+      slidesToShow={1}
+      swipeToSlide={true}
+      infinite={true}
+      autoplay
+      speed={1000}
+      {...rest}
+    >
+      {data?.map((d, i) => {
+        return (
+          <div className={wClass} key={i} onClick={() => console.log(d)}>
+            {renderImage(d)}
+          </div>
+        );
+      })}
+    </CustomSlider>
   );
 };
 
-export default Slider;
+export default SSlider;
