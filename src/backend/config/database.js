@@ -9,26 +9,14 @@ module.exports = ({ env }) => ({
         // port: env.int('DATABASE_PORT', 27017),
         // database: env('DATABASE_NAME', 'strapi'),
         // srv: env.bool('DATABASE_SRV', true),
-        uri: env(
-          'DATABASE_URI',
-          "mongodb://128.199.138.254:30001/ecommerce?replicaSet=rs0"
-        ),
+        uri: env("DATABASE_URL"),
         // username: env('DATABASE_USERNAME', 'strapi'),
         // password: env('DATABASE_PASSWORD', 'strapi'),
       },
-      options: {
-        authenticationDatabase: env("AUTHENTICATION_DATABASE"),
-        ssl: env("DATABASE_SSL"),
-      },
+      // options: {
+      //   authenticationDatabase: env("AUTHENTICATION_DATABASE"),
+      //   ssl: env("DATABASE_SSL"),
+      // },
     },
   },
 });
-
-
-
-
-
-
-
-
-

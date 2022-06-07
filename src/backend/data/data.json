@@ -1,9 +1,9 @@
 {
   "global": {
-    "siteName": "FTech CMS",
+    "siteName": "BMI CMS",
     "defaultSeo": {
-      "metaTitle": "FTech",
-      "metaDescription": "Touch the Future",
+      "metaTitle": "Med247",
+      "metaDescription": "Trao quyền cho người bệnh",
       "metaImage": null,
       "preventIndexing": false
     },

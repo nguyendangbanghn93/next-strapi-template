@@ -29,8 +29,8 @@ function LeftMenuFooter({ version }) {
           v{version}
         </A>
         &nbsp; */}
-        <A href="https://ftech.ai" target="_blank" rel="noopener noreferrer">
-          Produced by: Ftech.ai
+        <A href="https://med247.vn/" target="_blank" rel="noopener noreferrer">
+          Produced by: Med247
         </A>
       </div>
     </Wrapper>
