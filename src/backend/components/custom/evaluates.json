@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_evaluates",
+  "info": {
+    "name": "evaluates",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "markOne": {
+      "type": "decimal"
+    },
+    "markTwo": {
+      "type": "decimal"
+    },
+    "type": {
+      "model": "question-type"
+    }
+  }
+}

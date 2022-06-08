@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stages",
+  "info": {
+    "name": "stage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "_id",
+      "title"
+    ]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title_vi": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "age": {
+      "pluginOptions": {},
+      "type": "integer"
+    },
+    "evaluates": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {},
+      "component": "custom.evaluates"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "questions": {
+      "via": "stages",
+      "collection": "question"
+    }
+  }
+}

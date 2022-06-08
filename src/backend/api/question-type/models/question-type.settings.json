@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_types",
+  "info": {
+    "name": "questionType",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "title_vi": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "title_en": {
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "questions": {
+      "via": "types",
+      "collection": "question"
+    }
+  }
+}

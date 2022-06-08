@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "name": "question",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content_vi": {
+      "type": "text"
+    },
+    "content_en": {
+      "type": "text"
+    },
+    "types": {
+      "collection": "question-type",
+      "via": "questions",
+      "dominant": true
+    },
+    "stages": {
+      "collection": "stage",
+      "via": "questions",
+      "dominant": true
+    }
+  }
+}

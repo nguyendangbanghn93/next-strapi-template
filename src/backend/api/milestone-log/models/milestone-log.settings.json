@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "milestone_logs",
+  "info": {
+    "name": "milestoneLog",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "stage": {
+      "model": "stage"
+    },
+    "content": {
+      "model": "content"
+    },
+    "classify": {
+      "type": "enumeration",
+      "enum": [
+        "NORMAL",
+        "FOLLOW",
+        "EXAMINATION"
+      ]
+    },
+    "summaries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.summaries"
+    },
+    "results": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.results"
+    }
+  }
+}

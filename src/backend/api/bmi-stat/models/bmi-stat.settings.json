@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bmi_stats",
+  "info": {
+    "name": "bmiStat",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "weight": {
+      "type": "decimal",
+      "min": 0
+    },
+    "height": {
+      "type": "decimal",
+      "min": 0
+    },
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "logDate": {
+      "type": "datetime"
+    },
+    "uBmi": {
+      "via": "bmi",
+      "model": "bmi"
+    },
+    "img": {
+      "type": "string"
+    },
+    "thumb": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bmi-stats",
+      "handler": "bmi-stat.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bmi-stats/count",
+      "handler": "bmi-stat.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bmi-stats/:id",
+      "handler": "bmi-stat.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/bmi-stats",
+      "handler": "bmi-stat.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bmi-stats/:id",
+      "handler": "bmi-stat.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bmi-stats/:id",
+      "handler": "bmi-stat.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

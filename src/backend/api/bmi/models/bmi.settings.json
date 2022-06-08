@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bmis",
+  "info": {
+    "name": "bmi",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uid": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "bmi": {
+      "via": "uBmi",
+      "collection": "bmi-stat"
+    }
+  }
+}

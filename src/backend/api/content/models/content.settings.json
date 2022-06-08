@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contents",
+  "info": {
+    "name": "content"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content_vi": {
+      "type": "richtext"
+    },
+    "content_en": {
+      "type": "richtext"
+    },
+    "classify": {
+      "type": "enumeration",
+      "enum": [
+        "NORMAL",
+        "FOLLOW",
+        "EXAMINATION"
+      ],
+      "unique": true,
+      "required": true
+    }
+  }
+}

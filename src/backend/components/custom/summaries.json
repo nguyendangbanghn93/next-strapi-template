@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_custom_summaries",
+  "info": {
+    "name": "summaries",
+    "icon": "copy"
+  },
+  "options": {},
+  "attributes": {
+    "classify": {
+      "type": "enumeration",
+      "enum": [
+        "NORMAL",
+        "FOLLOW",
+        "EXAMINATION"
+      ]
+    },
+    "point": {
+      "type": "decimal",
+      "min": 0,
+      "max": 60
+    },
+    "type": {
+      "model": "question-type"
+    }
+  }
+}

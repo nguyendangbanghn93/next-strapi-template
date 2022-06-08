@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_custom_results",
+  "info": {
+    "name": "results",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "model": "question-type"
+    },
+    "question": {
+      "model": "question"
+    },
+    "point": {
+      "type": "integer",
+      "min": 0,
+      "max": 10
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/milestone-logs",
+      "handler": "milestone-log.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/milestone-logs/count",
+      "handler": "milestone-log.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/milestone-logs/:id",
+      "handler": "milestone-log.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/milestone-logs",
+      "handler": "milestone-log.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/milestone-logs/:id",
+      "handler": "milestone-log.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/milestone-logs/:id",
+      "handler": "milestone-log.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/psychomotor/add-milestone-log",
+      "handler": "milestone-log.addLog",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
